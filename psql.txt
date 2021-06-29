@@ -1,0 +1,54 @@
+PostgreSQL Commands
+
+1. Switch database
+    --> \c <database_name>
+
+2. Create Table
+    --> create table <table_name>(col1 datatype , col2 datatype , col3 datatype , ....);
+
+3. Show Tables
+    -->\d
+
+4. Exit 
+    -->\q
+
+5. Insert Elements
+    --> insert into <table_name>(col1 , col2 , col3 , ...) values(val1 , val2 , val3 , ...);
+
+6. Select
+    -->select <column_names> from <table_name>;
+
+7. To add a new Column - ALTER
+    -->ALTER TABLE <table_name> ADD col_name value;
+
+8. To update values in table - UPDATE 
+    -->UPDATE <table_name> SET <col_name> = <value> WHERE condition;
+
+9. 
+    -->SELECT * from users WHERE <col_name> LIKE 'A%';  (displays all names starting with A)
+    -->SELECT * from users WHERE <col_name> LIKE '%y';  (displays all names ending with y)
+    -->SELECT * from users ORDER BY <col_name> DESC/ASC (displays all contents in ASC/DeSC order)
+
+10. Aggregate Functions
+    -->SELECT SUM(<col_name>) FROM <table_name>;
+    -->SELECT AVG(<col_name>) FROM <table_name>;
+    -->SELECT COUNT(<col_name>) FROM <table_name>;
+
+11. Constraints
+    -->CREATE TABLE login (
+        id serial NOT NULL PRIMARY KEY,
+        secret VARCHAR(100) NOT NULL,
+        name text UNIQUE NOT NULL
+    );
+    here serial is a datatype that auto increments its value.
+
+    -->INSERT INTO login(secret,name) values('abc' , 'Aishwarya');   //id not needed bcoz it is auto.
+
+12. Joins
+    -->SELECT * from users JOIN login on users.name=login.name;
+
+13. Delete contents
+    -->DELETE FROM <table_name> WHERE <condition>;
+
+14. Drop Tables
+    -->DROP TABLE <table_name>;
